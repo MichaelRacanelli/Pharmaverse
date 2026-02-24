@@ -1,0 +1,1669 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Treatment arm denominators:
+# A tibble: 3 × 3
+  ACTARM               N_arm arm_label                     
+  <fct>                <int> <chr>                         
+1 Placebo                 86 "Placebo\n(N=86)"             
+2 Xanomeline Low Dose     96 "Xanomeline Low Dose\n(N=96)" 
+3 Xanomeline High Dose    72 "Xanomeline High Dose\n(N=72)"
+Total treated subjects (denominator): 254 
+
+Total unique AETERM values in TEAE: 230 
+Top 10 AEs by subject count:
+# A tibble: 10 × 2
+   AETERM                      n_total
+   <chr>                         <int>
+ 1 PRURITUS                         54
+ 2 APPLICATION SITE PRURITUS        50
+ 3 ERYTHEMA                         36
+ 4 APPLICATION SITE ERYTHEMA        30
+ 5 RASH                             26
+ 6 APPLICATION SITE DERMATITIS      21
+ 7 APPLICATION SITE IRRITATION      21
+ 8 DIZZINESS                        21
+ 9 DIARRHOEA                        17
+10 SINUS BRADYCARDIA                17
+
+AE Summary Table preview (first 10 rows):
+<div id="zqcgopvpqh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+  <style>#zqcgopvpqh table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#zqcgopvpqh thead, #zqcgopvpqh tbody, #zqcgopvpqh tfoot, #zqcgopvpqh tr, #zqcgopvpqh td, #zqcgopvpqh th {
+  border-style: none;
+}
+
+#zqcgopvpqh p {
+  margin: 0;
+  padding: 0;
+}
+
+#zqcgopvpqh .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#zqcgopvpqh .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#zqcgopvpqh .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#zqcgopvpqh .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#zqcgopvpqh .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#zqcgopvpqh .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#zqcgopvpqh .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#zqcgopvpqh .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#zqcgopvpqh .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#zqcgopvpqh .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#zqcgopvpqh .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#zqcgopvpqh .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#zqcgopvpqh .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#zqcgopvpqh .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#zqcgopvpqh .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#zqcgopvpqh .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#zqcgopvpqh .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#zqcgopvpqh .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#zqcgopvpqh .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zqcgopvpqh .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#zqcgopvpqh .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#zqcgopvpqh .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#zqcgopvpqh .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zqcgopvpqh .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#zqcgopvpqh .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#zqcgopvpqh .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#zqcgopvpqh .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zqcgopvpqh .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#zqcgopvpqh .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#zqcgopvpqh .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#zqcgopvpqh .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#zqcgopvpqh .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#zqcgopvpqh .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zqcgopvpqh .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#zqcgopvpqh .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#zqcgopvpqh .gt_left {
+  text-align: left;
+}
+
+#zqcgopvpqh .gt_center {
+  text-align: center;
+}
+
+#zqcgopvpqh .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#zqcgopvpqh .gt_font_normal {
+  font-weight: normal;
+}
+
+#zqcgopvpqh .gt_font_bold {
+  font-weight: bold;
+}
+
+#zqcgopvpqh .gt_font_italic {
+  font-style: italic;
+}
+
+#zqcgopvpqh .gt_super {
+  font-size: 65%;
+}
+
+#zqcgopvpqh .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#zqcgopvpqh .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#zqcgopvpqh .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#zqcgopvpqh .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#zqcgopvpqh .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#zqcgopvpqh .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#zqcgopvpqh .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#zqcgopvpqh .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#zqcgopvpqh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+  <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <!--/html_preserve--><caption class='gt_caption'><span class='gt_from_md'><strong>Table 1. Summary of Treatment-Emergent Adverse Events (TEAEs)</strong></p>
+<p>Subjects with ≥1 occurrence; n (%). Sorted by descending overall frequency.</p>
+<p>TEAE defined as TRTEMFL=‘Y’ in ADAE.</span></caption><!--html_preserve-->
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="label"><span class='gt_from_md'><strong>Adverse Event Term</strong></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_1"><span class='gt_from_md'><strong>Placebo</strong>
+<strong>(N=86)</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_2"><span class='gt_from_md'><strong>Xanomeline Low Dose</strong>
+<strong>(N=96)</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_3"><span class='gt_from_md'><strong>Xanomeline High Dose</strong>
+<strong>(N=72)</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="stat_0"><span class='gt_from_md'><strong>Overall</strong>
+<strong>(N=254)</strong></span><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">Subjects with any TEAE</td>
+<td headers="stat_1" class="gt_row gt_center">65 (75.6%)</td>
+<td headers="stat_2" class="gt_row gt_center">84 (87.5%)</td>
+<td headers="stat_3" class="gt_row gt_center">68 (94.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">217 (85.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">PRURITUS</td>
+<td headers="stat_1" class="gt_row gt_center">8 (9.3%)</td>
+<td headers="stat_2" class="gt_row gt_center">21 (21.9%)</td>
+<td headers="stat_3" class="gt_row gt_center">25 (34.7%)</td>
+<td headers="stat_0" class="gt_row gt_center">54 (21.3%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">APPLICATION SITE PRURITUS</td>
+<td headers="stat_1" class="gt_row gt_center">6 (7.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">23 (24.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">21 (29.2%)</td>
+<td headers="stat_0" class="gt_row gt_center">50 (19.7%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ERYTHEMA</td>
+<td headers="stat_1" class="gt_row gt_center">8 (9.3%)</td>
+<td headers="stat_2" class="gt_row gt_center">14 (14.6%)</td>
+<td headers="stat_3" class="gt_row gt_center">14 (19.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">36 (14.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">APPLICATION SITE ERYTHEMA</td>
+<td headers="stat_1" class="gt_row gt_center">3 (3.5%)</td>
+<td headers="stat_2" class="gt_row gt_center">13 (13.5%)</td>
+<td headers="stat_3" class="gt_row gt_center">14 (19.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">30 (11.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">RASH</td>
+<td headers="stat_1" class="gt_row gt_center">5 (5.8%)</td>
+<td headers="stat_2" class="gt_row gt_center">13 (13.5%)</td>
+<td headers="stat_3" class="gt_row gt_center">8 (11.1%)</td>
+<td headers="stat_0" class="gt_row gt_center">26 (10.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">APPLICATION SITE DERMATITIS</td>
+<td headers="stat_1" class="gt_row gt_center">5 (5.8%)</td>
+<td headers="stat_2" class="gt_row gt_center">9 (9.4%)</td>
+<td headers="stat_3" class="gt_row gt_center">7 (9.7%)</td>
+<td headers="stat_0" class="gt_row gt_center">21 (8.3%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">APPLICATION SITE IRRITATION</td>
+<td headers="stat_1" class="gt_row gt_center">3 (3.5%)</td>
+<td headers="stat_2" class="gt_row gt_center">9 (9.4%)</td>
+<td headers="stat_3" class="gt_row gt_center">9 (12.5%)</td>
+<td headers="stat_0" class="gt_row gt_center">21 (8.3%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">DIZZINESS</td>
+<td headers="stat_1" class="gt_row gt_center">2 (2.3%)</td>
+<td headers="stat_2" class="gt_row gt_center">9 (9.4%)</td>
+<td headers="stat_3" class="gt_row gt_center">10 (13.9%)</td>
+<td headers="stat_0" class="gt_row gt_center">21 (8.3%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">DIARRHOEA</td>
+<td headers="stat_1" class="gt_row gt_center">9 (10.5%)</td>
+<td headers="stat_2" class="gt_row gt_center">5 (5.2%)</td>
+<td headers="stat_3" class="gt_row gt_center">3 (4.2%)</td>
+<td headers="stat_0" class="gt_row gt_center">17 (6.7%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">SINUS BRADYCARDIA</td>
+<td headers="stat_1" class="gt_row gt_center">2 (2.3%)</td>
+<td headers="stat_2" class="gt_row gt_center">7 (7.3%)</td>
+<td headers="stat_3" class="gt_row gt_center">8 (11.1%)</td>
+<td headers="stat_0" class="gt_row gt_center">17 (6.7%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">HYPERHIDROSIS</td>
+<td headers="stat_1" class="gt_row gt_center">2 (2.3%)</td>
+<td headers="stat_2" class="gt_row gt_center">4 (4.2%)</td>
+<td headers="stat_3" class="gt_row gt_center">8 (11.1%)</td>
+<td headers="stat_0" class="gt_row gt_center">14 (5.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">SKIN IRRITATION</td>
+<td headers="stat_1" class="gt_row gt_center">3 (3.5%)</td>
+<td headers="stat_2" class="gt_row gt_center">6 (6.3%)</td>
+<td headers="stat_3" class="gt_row gt_center">5 (6.9%)</td>
+<td headers="stat_0" class="gt_row gt_center">14 (5.5%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">VOMITING</td>
+<td headers="stat_1" class="gt_row gt_center">3 (3.5%)</td>
+<td headers="stat_2" class="gt_row gt_center">4 (4.2%)</td>
+<td headers="stat_3" class="gt_row gt_center">6 (8.3%)</td>
+<td headers="stat_0" class="gt_row gt_center">13 (5.1%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">NASOPHARYNGITIS</td>
+<td headers="stat_1" class="gt_row gt_center">2 (2.3%)</td>
+<td headers="stat_2" class="gt_row gt_center">4 (4.2%)</td>
+<td headers="stat_3" class="gt_row gt_center">6 (8.3%)</td>
+<td headers="stat_0" class="gt_row gt_center">12 (4.7%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">NAUSEA</td>
+<td headers="stat_1" class="gt_row gt_center">3 (3.5%)</td>
+<td headers="stat_2" class="gt_row gt_center">3 (3.1%)</td>
+<td headers="stat_3" class="gt_row gt_center">6 (8.3%)</td>
+<td headers="stat_0" class="gt_row gt_center">12 (4.7%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">APPLICATION SITE VESICLES</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">5 (5.2%)</td>
+<td headers="stat_3" class="gt_row gt_center">5 (6.9%)</td>
+<td headers="stat_0" class="gt_row gt_center">11 (4.3%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">COUGH</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">5 (5.2%)</td>
+<td headers="stat_3" class="gt_row gt_center">5 (6.9%)</td>
+<td headers="stat_0" class="gt_row gt_center">11 (4.3%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">FATIGUE</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">5 (5.2%)</td>
+<td headers="stat_3" class="gt_row gt_center">5 (6.9%)</td>
+<td headers="stat_0" class="gt_row gt_center">11 (4.3%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">HEADACHE</td>
+<td headers="stat_1" class="gt_row gt_center">3 (3.5%)</td>
+<td headers="stat_2" class="gt_row gt_center">3 (3.1%)</td>
+<td headers="stat_3" class="gt_row gt_center">5 (6.9%)</td>
+<td headers="stat_0" class="gt_row gt_center">11 (4.3%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">MYOCARDIAL INFARCTION</td>
+<td headers="stat_1" class="gt_row gt_center">4 (4.7%)</td>
+<td headers="stat_2" class="gt_row gt_center">2 (2.1%)</td>
+<td headers="stat_3" class="gt_row gt_center">4 (5.6%)</td>
+<td headers="stat_0" class="gt_row gt_center">10 (3.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">UPPER RESPIRATORY TRACT INFECTION</td>
+<td headers="stat_1" class="gt_row gt_center">6 (7.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">3 (4.2%)</td>
+<td headers="stat_0" class="gt_row gt_center">10 (3.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">NASAL CONGESTION</td>
+<td headers="stat_1" class="gt_row gt_center">3 (3.5%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">3 (4.2%)</td>
+<td headers="stat_0" class="gt_row gt_center">7 (2.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">SYNCOPE</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">5 (5.2%)</td>
+<td headers="stat_3" class="gt_row gt_center">2 (2.8%)</td>
+<td headers="stat_0" class="gt_row gt_center">7 (2.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">BLISTER</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">5 (5.2%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">6 (2.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">CONFUSIONAL STATE</td>
+<td headers="stat_1" class="gt_row gt_center">2 (2.3%)</td>
+<td headers="stat_2" class="gt_row gt_center">3 (3.1%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">6 (2.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">SOMNOLENCE</td>
+<td headers="stat_1" class="gt_row gt_center">2 (2.3%)</td>
+<td headers="stat_2" class="gt_row gt_center">3 (3.1%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">6 (2.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ABDOMINAL PAIN</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">3 (3.1%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">5 (2.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">AGITATION</td>
+<td headers="stat_1" class="gt_row gt_center">2 (2.3%)</td>
+<td headers="stat_2" class="gt_row gt_center">3 (3.1%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">5 (2.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ATRIAL FIBRILLATION</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">2 (2.1%)</td>
+<td headers="stat_3" class="gt_row gt_center">2 (2.8%)</td>
+<td headers="stat_0" class="gt_row gt_center">5 (2.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">BACK PAIN</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">3 (4.2%)</td>
+<td headers="stat_0" class="gt_row gt_center">5 (2.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ELECTROCARDIOGRAM ST SEGMENT DEPRESSION</td>
+<td headers="stat_1" class="gt_row gt_center">4 (4.7%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">5 (2.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">OEDEMA PERIPHERAL</td>
+<td headers="stat_1" class="gt_row gt_center">2 (2.3%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">2 (2.8%)</td>
+<td headers="stat_0" class="gt_row gt_center">5 (2.0%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ARTHRALGIA</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">2 (2.1%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">4 (1.6%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">CONTUSION</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">2 (2.8%)</td>
+<td headers="stat_0" class="gt_row gt_center">4 (1.6%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ELECTROCARDIOGRAM T WAVE INVERSION</td>
+<td headers="stat_1" class="gt_row gt_center">2 (2.3%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">4 (1.6%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">EXCORIATION</td>
+<td headers="stat_1" class="gt_row gt_center">2 (2.3%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">4 (1.6%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">FALL</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">2 (2.1%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">4 (1.6%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">INSOMNIA</td>
+<td headers="stat_1" class="gt_row gt_center">2 (2.3%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">2 (2.8%)</td>
+<td headers="stat_0" class="gt_row gt_center">4 (1.6%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">SALIVARY HYPERSECRETION</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">4 (5.6%)</td>
+<td headers="stat_0" class="gt_row gt_center">4 (1.6%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ANXIETY</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">3 (3.1%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">3 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">APPLICATION SITE SWELLING</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">2 (2.8%)</td>
+<td headers="stat_0" class="gt_row gt_center">3 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">APPLICATION SITE URTICARIA</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">2 (2.1%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">3 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">CHILLS</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">3 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">DYSPNOEA</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">3 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">EPISTAXIS</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">2 (2.8%)</td>
+<td headers="stat_0" class="gt_row gt_center">3 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">HIP FRACTURE</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">2 (2.8%)</td>
+<td headers="stat_0" class="gt_row gt_center">3 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">HYPOTENSION</td>
+<td headers="stat_1" class="gt_row gt_center">2 (2.3%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">3 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">INFLUENZA</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">3 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">MALAISE</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">2 (2.8%)</td>
+<td headers="stat_0" class="gt_row gt_center">3 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">MICTURITION URGENCY</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">3 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">PYREXIA</td>
+<td headers="stat_1" class="gt_row gt_center">2 (2.3%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">3 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">RASH PRURITIC</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">2 (2.8%)</td>
+<td headers="stat_0" class="gt_row gt_center">3 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">SHOULDER PAIN</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">2 (2.1%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">3 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">SKIN LACERATION</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">2 (2.1%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">3 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">SUPRAVENTRICULAR EXTRASYSTOLES</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">3 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">TRANSIENT ISCHAEMIC ATTACK</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">2 (2.1%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">3 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">URINARY TRACT INFECTION</td>
+<td headers="stat_1" class="gt_row gt_center">2 (2.3%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">3 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">VENTRICULAR EXTRASYSTOLES</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">2 (2.1%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">3 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">VENTRICULAR SEPTAL DEFECT</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">2 (2.8%)</td>
+<td headers="stat_0" class="gt_row gt_center">3 (1.2%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">APPLICATION SITE PAIN</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">2 (2.8%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">APPLICATION SITE PERSPIRATION</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">2 (2.8%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">APPLICATION SITE REACTION</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ASTHENIA</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ATRIAL FLUTTER</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ATRIOVENTRICULAR BLOCK FIRST DEGREE</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">BENIGN PROSTATIC HYPERPLASIA</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">BLOOD GLUCOSE INCREASED</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">BUNDLE BRANCH BLOCK RIGHT</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">BURNING SENSATION</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">2 (2.8%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">CATARACT OPERATION</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">CHEST DISCOMFORT</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">CHEST PAIN</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">2 (2.8%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">CYSTITIS</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">DECREASED APPETITE</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">DELUSION</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">DYSPEPSIA</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">DYSURIA</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">EAR INFECTION</td>
+<td headers="stat_1" class="gt_row gt_center">2 (2.3%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ELECTROCARDIOGRAM T WAVE AMPLITUDE DECREASED</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">FOOD CRAVING</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">HYPERTENSION</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">INCREASED APPETITE</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">IRRITABILITY</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">LETHARGY</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">MUSCLE SPASMS</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">NEPHROLITHIASIS</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">OEDEMA</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">2 (2.1%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">PAIN</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">PALPITATIONS</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">2 (2.1%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">PHARYNGOLARYNGEAL PAIN</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">PRURITUS GENERALISED</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">RHINORRHOEA</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">URTICARIA</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">VERTIGO</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">VISION BLURRED</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">2 (0.8%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ABDOMINAL DISCOMFORT</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ACROCHORDON EXCISION</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ACTINIC KERATOSIS</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ALCOHOL USE</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ALLERGIC GRANULOMATOUS ANGIITIS</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ALOPECIA</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">AMNESIA</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">APPLICATION SITE BLEEDING</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">APPLICATION SITE DESQUAMATION</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">APPLICATION SITE DISCHARGE</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">APPLICATION SITE DISCOLOURATION</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">APPLICATION SITE INDURATION</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">APPLICATION SITE WARMTH</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ARTHRITIS</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ATRIAL HYPERTROPHY</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ATRIOVENTRICULAR BLOCK SECOND DEGREE</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">BALANCE DISORDER</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">BIOPSY</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">BIOPSY PROSTATE</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">BLOOD ALKALINE PHOSPHATASE INCREASED</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">BLOOD CHOLESTEROL INCREASED</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">BLOOD CREATINE PHOSPHOKINASE INCREASED</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">BLOOD URINE PRESENT</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">BODY TEMPERATURE INCREASED</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">BRADYCARDIA</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">BRONCHITIS</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">BUNDLE BRANCH BLOCK LEFT</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">CALCULUS URETHRAL</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">CARDIAC DISORDER</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">CARDIAC FAILURE CONGESTIVE</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">CELLULITIS</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">CERUMEN IMPACTION</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">CERVICITIS</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">COGNITIVE DISORDER</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">COLD SWEAT</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">COLON CANCER</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">COMPLETED SUICIDE</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">COMPLEX PARTIAL SEIZURES</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">CONJUNCTIVAL HAEMORRHAGE</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">CONJUNCTIVITIS</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">CONSTIPATION</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">COORDINATION ABNORMAL</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">CYSTOSCOPY</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">DEHYDRATION</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">DELIRIUM</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">DEPRESSED MOOD</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">DERMATITIS CONTACT</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">DIABETES MELLITUS</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">DISORIENTATION</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">DRUG ERUPTION</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">DYSPHAGIA</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">DYSPHONIA</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">EAR PAIN</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">EMPHYSEMA</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">EYE ALLERGY</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">EYE LASER SURGERY</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">EYE PRURITUS</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">EYE SWELLING</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">FACIAL BONES FRACTURE</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">FEELING ABNORMAL</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">FEELING COLD</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">FLANK PAIN</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">FLATULENCE</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">GASTROENTERITIS VIRAL</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">GASTROINTESTINAL HAEMORRHAGE</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">GASTROOESOPHAGEAL REFLUX DISEASE</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">GLOSSITIS</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">HAEMOPTYSIS</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">HALLUCINATION</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">HALLUCINATION, VISUAL</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">HEART RATE INCREASED</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">HEART RATE IRREGULAR</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">HEMIANOPIA HOMONYMOUS</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">HIATUS HERNIA</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">HORDEOLUM</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">HOT FLUSH</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">HYPERBILIRUBINAEMIA</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">HYPERSENSITIVITY</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">HYPERSOMNIA</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">HYPONATRAEMIA</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">INCONTINENCE</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">INFLAMMATION</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">JOINT DISLOCATION</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">LIBIDO DECREASED</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">LISTLESS</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">LOCALISED INFECTION</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">LOWER RESPIRATORY TRACT INFECTION</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">MALIGNANT FIBROUS HISTIOCYTOMA</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">MUSCULAR WEAKNESS</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">MYALGIA</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">NASAL MUCOSA BIOPSY</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">NIGHTMARE</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ORTHOSTATIC HYPOTENSION</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">PAIN IN EXTREMITY</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">PARAESTHESIA</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">PARAESTHESIA ORAL</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">PARKINSON'S DISEASE</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">PAROSMIA</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">PARTIAL SEIZURES WITH SECONDARY GENERALISATION</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">PELVIC PAIN</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">PHARYNGEAL ERYTHEMA</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">PNEUMONIA</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">POLLAKIURIA</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">POSTNASAL DRIP</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">PRODUCTIVE COUGH</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">PROSTATE CANCER</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">PSYCHOMOTOR HYPERACTIVITY</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">RALES</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">RASH ERYTHEMATOUS</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">RASH MACULO-PAPULAR</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">RECTAL HAEMORRHAGE</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">RESPIRATORY TRACT CONGESTION</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">RESTLESSNESS</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">RHINITIS</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">SECRETION DISCHARGE</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">SINUS ARRHYTHMIA</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">SKIN EXFOLIATION</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">SKIN LESION EXCISION</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">SKIN ODOUR ABNORMAL</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">SKIN ULCER</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">STOMACH DISCOMFORT</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">STUPOR</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">SUDDEN DEATH</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">SUPRAVENTRICULAR TACHYCARDIA</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">SWELLING</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">SYNCOPE VASOVAGAL</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">TACHYCARDIA</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">ULCER</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">VAGINAL MYCOSIS</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">VENTRICULAR HYPERTROPHY</td>
+<td headers="stat_1" class="gt_row gt_center">1 (1.2%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">VIRAL INFECTION</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">WEIGHT DECREASED</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">WOLFF-PARKINSON-WHITE SYNDROME</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">WOUND</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">1 (1.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">WOUND HAEMORRHAGE</td>
+<td headers="stat_1" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_2" class="gt_row gt_center">0 (0.0%)</td>
+<td headers="stat_3" class="gt_row gt_center">1 (1.4%)</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.4%)</td></tr>
+  </tbody>
+  <tfoot>
+    <tr class="gt_footnotes">
+      <td class="gt_footnote" colspan="5"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> <span class='gt_from_md'>n (%)</span></td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+
+=== AE Summary Table saved: question_3_tlg/ae_summary_table.html ===

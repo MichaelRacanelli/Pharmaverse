@@ -1,0 +1,61 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+TEAE records: 1122 
+TEAE subjects: 217 
+
+Severity distribution data:
+# A tibble: 9 × 5
+  ACTARM                          AESEV    n_events N_arm   pct
+  <fct>                           <fct>       <int> <int> <dbl>
+1 "Placebo\n(N=86)"               MILD          154    86 179. 
+2 "Placebo\n(N=86)"               MODERATE       46    86  53.5
+3 "Placebo\n(N=86)"               SEVERE          5    86   5.8
+4 "Xanomeline\nLow Dose\n(N=96)"  MILD          176    96 183. 
+5 "Xanomeline\nLow Dose\n(N=96)"  MODERATE      132    96 138. 
+6 "Xanomeline\nLow Dose\n(N=96)"  SEVERE         22    96  22.9
+7 "Xanomeline\nHigh Dose\n(N=72)" MILD          221    72 307. 
+8 "Xanomeline\nHigh Dose\n(N=72)" MODERATE       98    72 136. 
+9 "Xanomeline\nHigh Dose\n(N=72)" SEVERE         10    72  13.9
+Plot 1 saved: question_3_tlg/plot1_ae_severity.png
+
+Top 10 AEs by subject count:
+# A tibble: 10 × 2
+   AETERM                      n_subjects
+   <chr>                            <int>
+ 1 PRURITUS                            54
+ 2 APPLICATION SITE PRURITUS           50
+ 3 ERYTHEMA                            36
+ 4 APPLICATION SITE ERYTHEMA           30
+ 5 RASH                                26
+ 6 APPLICATION SITE DERMATITIS         21
+ 7 APPLICATION SITE IRRITATION         21
+ 8 DIZZINESS                           21
+ 9 DIARRHOEA                           17
+10 SINUS BRADYCARDIA                   17
+
+Top 10 AEs with 95% CI (%):
+# A tibble: 10 × 5
+   AETERM                      n_subjects   pct lower_pct upper_pct
+   <chr>                            <int> <dbl>     <dbl>     <dbl>
+ 1 PRURITUS                            54 21.3      16.7       26.7
+ 2 APPLICATION SITE PRURITUS           50 19.7      15.3       25.0
+ 3 ERYTHEMA                            36 14.2      10.4       19.0
+ 4 APPLICATION SITE ERYTHEMA           30 11.8       8.40      16.4
+ 5 RASH                                26 10.2       7.08      14.6
+ 6 APPLICATION SITE DERMATITIS         21  8.27      5.47      12.3
+ 7 APPLICATION SITE IRRITATION         21  8.27      5.47      12.3
+ 8 DIZZINESS                           21  8.27      5.47      12.3
+ 9 DIARRHOEA                           17  6.69      4.22      10.5
+10 SINUS BRADYCARDIA                   17  6.69      4.22      10.5
+Plot 2 saved: question_3_tlg/plot2_top10_ae.png
+
+=== Both visualizations created successfully ===
