@@ -1,0 +1,101 @@
+20:10:17 [INFO] ClinicalTrialDataAgent: Loaded AE dataset: 1191 rows × 35 cols from /Users/michaelracanelli/Desktop/GitRepos/Pharmaverse/question_4_genai/adae.csv
+20:10:17 [INFO] ClinicalTrialDataAgent: LLM backend: OpenAI gpt-4o-mini
+20:10:17 [INFO] ClinicalTrialDataAgent: Parsing question: 'Give me the subjects who had Adverse Events of Moderate severity.'
+20:10:20 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+20:10:20 [INFO] ClinicalTrialDataAgent: LLM intent: {'target_column': 'AESEV', 'filter_value': 'MODERATE', 'operation': 'equals', 'reasoning': 'The user is asking for subjects with adverse events classified as having moderate severity, which directly corresponds to the AESEV column.'}
+20:10:20 [INFO] ClinicalTrialDataAgent: Parsing question: 'Which patients experienced Cardiac adverse events?'
+20:10:22 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+20:10:22 [INFO] ClinicalTrialDataAgent: LLM intent: {'target_column': 'AESOC', 'filter_value': 'CARDIAC', 'operation': 'contains', 'reasoning': 'The user is asking about patients who experienced adverse events related to the cardiac system, which corresponds to the AESOC column.'}
+
+══════════════════════════════════════════════════════════════
+  ClinicalTrialDataAgent — Test Run
+══════════════════════════════════════════════════════════════
+
+[Dataset Summary]
+Dataset  : /Users/michaelracanelli/Desktop/GitRepos/Pharmaverse/question_4_genai/adae.csv
+Rows     : 1191
+Columns  : ['STUDYID', 'DOMAIN', 'USUBJID', 'AESEQ', 'AESPID', 'AETERM', 'AELLT', 'AELLTCD', 'AEDECOD', 'AEPTCD', 'AEHLT', 'AEHLTCD', 'AEHLGT', 'AEHLGTCD', 'AEBODSYS', 'AEBDSYCD', 'AESOC', 'AESOCCD', 'AESEV', 'AESER', 'AEACN', 'AEREL', 'AEOUT', 'AESCAN', 'AESCONG', 'AESDISAB', 'AESDTH', 'AESHOSP', 'AESLIFE', 'AESOD', 'AEDTC', 'AESTDTC', 'AEENDTC', 'AESTDY', 'AEENDY']
+Subjects : 225
+LLM      : OpenAI gpt-4o-mini
+
+
+══════════════════════════════════════════════════════════════
+  Running 3 Test Queries
+══════════════════════════════════════════════════════════════
+
+
+──────────────────────────────────────────────────────────────
+  QUERY 1 of 3
+──────────────────────────────────────────────────────────────
+──────────────────────────────────────────────────────────────
+  Question : Give me the subjects who had Adverse Events of Moderate severity.
+  Column   : AESEV
+  Filter   : 'MODERATE'  [equals]
+  Reasoning: The user is asking for subjects with adverse events classified as having moderate severity, which directly corresponds to the AESEV column.
+  ─────────────────────────────────────────────────────
+  Matching AE records : 378
+  Unique subjects (n) : 136
+  Subject IDs         : ['01-701-1023', '01-701-1047', '01-701-1097', '01-701-1111', '01-701-1115', '01-701-1133', '01-701-1146', '01-701-1148', '01-701-1180', '01-701-1181', '01-701-1188', '01-701-1192', '01-701-1211', '01-701-1239', '01-701-1294', '01-701-1302', '01-701-1317', '01-701-1341', '01-701-1360', '01-701-1363', '01-701-1383', '01-701-1444', '01-702-1082', '01-703-1076', '01-703-1086', '01-703-1100', '01-703-1119', '01-703-1182', '01-703-1210', '01-703-1258', '01-703-1295', '01-703-1299', '01-703-1403', '01-703-1439', '01-704-1008', '01-704-1025', '01-704-1065', '01-704-1120', '01-704-1241', '01-704-1266', '01-704-1332', '01-704-1388', '01-705-1059', '01-705-1186', '01-705-1199', '01-705-1281', '01-705-1292', '01-705-1303', '01-705-1310', '01-706-1041', '01-706-1049', '01-706-1384', '01-707-1206', '01-708-1032', '01-708-1347', '01-708-1372', '01-708-1428', '01-709-1081', '01-709-1099', '01-709-1102', '01-709-1168', '01-709-1217', '01-709-1238', '01-709-1306', '01-709-1326', '01-709-1339', '01-709-1424', '01-710-1006', '01-710-1021', '01-710-1045', '01-710-1053', '01-710-1077', '01-710-1137', '01-710-1142', '01-710-1154', '01-710-1166', '01-710-1183', '01-710-1235', '01-710-1249', '01-710-1264', '01-710-1270', '01-710-1271', '01-710-1278', '01-710-1300', '01-710-1315', '01-710-1385', '01-711-1012', '01-711-1143', '01-711-1433', '01-713-1043', '01-713-1141', '01-713-1179', '01-713-1209', '01-713-1269', '01-713-1448', '01-714-1035', '01-714-1068', '01-714-1195', '01-714-1288', '01-714-1375', '01-714-1425', '01-715-1107', '01-715-1207', '01-715-1319', '01-715-1321', '01-715-1405', '01-716-1024', '01-716-1063', '01-716-1071', '01-716-1094', '01-716-1103', '01-716-1151', '01-716-1167', '01-716-1189', '01-716-1229', '01-716-1298', '01-716-1311', '01-716-1373', '01-716-1418', '01-716-1447', '01-717-1004', '01-717-1174', '01-717-1344', '01-717-1357', '01-717-1446', '01-718-1066', '01-718-1079', '01-718-1139', '01-718-1150', '01-718-1170', '01-718-1250', '01-718-1254', '01-718-1328', '01-718-1355', '01-718-1371', '01-718-1427']
+──────────────────────────────────────────────────────────────
+
+  Sample matching records (up to 5):
+
+    USUBJID=01-701-1023  AETERM='ERYTHEMA'  AESEV=MODERATE  AESER=N  AEOUT=NOT RECOVERED/NOT RESOLVED
+    USUBJID=01-701-1047  AETERM='HIATUS HERNIA'  AESEV=MODERATE  AESER=N  AEOUT=NOT RECOVERED/NOT RESOLVED
+    USUBJID=01-701-1047  AETERM='HIATUS HERNIA'  AESEV=MODERATE  AESER=N  AEOUT=RECOVERED/RESOLVED
+    USUBJID=01-701-1097  AETERM='APPLICATION SITE PRURITUS'  AESEV=MODERATE  AESER=N  AEOUT=NOT RECOVERED/NOT RESOLVED
+    USUBJID=01-701-1097  AETERM='PRURITUS GENERALISED'  AESEV=MODERATE  AESER=N  AEOUT=RECOVERED/RESOLVED
+
+──────────────────────────────────────────────────────────────
+  QUERY 2 of 3
+──────────────────────────────────────────────────────────────
+──────────────────────────────────────────────────────────────
+  Question : Which patients experienced Cardiac adverse events?
+  Column   : AESOC
+  Filter   : 'CARDIAC'  [contains]
+  Reasoning: The user is asking about patients who experienced adverse events related to the cardiac system, which corresponds to the AESOC column.
+  ─────────────────────────────────────────────────────
+  Matching AE records : 91
+  Unique subjects (n) : 44
+  Subject IDs         : ['01-701-1023', '01-701-1047', '01-703-1175', '01-703-1299', '01-703-1335', '01-704-1008', '01-704-1017', '01-704-1025', '01-704-1065', '01-704-1266', '01-705-1349', '01-707-1206', '01-708-1084', '01-708-1178', '01-708-1213', '01-708-1272', '01-708-1286', '01-708-1296', '01-708-1297', '01-708-1348', '01-708-1372', '01-709-1029', '01-709-1285', '01-710-1006', '01-710-1070', '01-710-1083', '01-710-1142', '01-710-1183', '01-710-1271', '01-710-1385', '01-711-1143', '01-714-1035', '01-714-1288', '01-714-1425', '01-715-1107', '01-715-1319', '01-715-1321', '01-715-1405', '01-716-1094', '01-717-1004', '01-717-1109', '01-717-1446', '01-718-1101', '01-718-1150']
+──────────────────────────────────────────────────────────────
+
+  Sample matching records (up to 5):
+
+    USUBJID=01-701-1023  AETERM='ATRIOVENTRICULAR BLOCK SECOND DEGREE'  AESEV=MILD  AESER=N  AEOUT=NOT RECOVERED/NOT RESOLVED
+    USUBJID=01-701-1047  AETERM='BUNDLE BRANCH BLOCK LEFT'  AESEV=MILD  AESER=N  AEOUT=NOT RECOVERED/NOT RESOLVED
+    USUBJID=01-703-1175  AETERM='ATRIOVENTRICULAR BLOCK SECOND DEGREE'  AESEV=SEVERE  AESER=N  AEOUT=NOT RECOVERED/NOT RESOLVED
+    USUBJID=01-703-1299  AETERM='MYOCARDIAL INFARCTION'  AESEV=MODERATE  AESER=N  AEOUT=NOT RECOVERED/NOT RESOLVED
+    USUBJID=01-703-1299  AETERM='TACHYCARDIA'  AESEV=MILD  AESER=N  AEOUT=NOT RECOVERED/NOT RESOLVED
+
+──────────────────────────────────────────────────────────────
+  QUERY 3 of 3
+──────────────────────────────────────────────────────────────20:10:22 [INFO] ClinicalTrialDataAgent: Parsing question: 'Show me all subjects who reported "Pruritus" as an adverse event.'
+20:10:22 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+20:10:22 [INFO] openai._base_client: Retrying request to /chat/completions in 20.000000 seconds
+20:10:44 [INFO] httpx: HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+20:10:44 [INFO] ClinicalTrialDataAgent: LLM intent: {'target_column': 'AETERM', 'filter_value': 'PRURITUS', 'operation': 'contains', 'reasoning': "The user is asking for subjects who reported 'Pruritus', which is a specific adverse event term. Therefore, we filter by the AETERM column using a contains operation."}
+
+──────────────────────────────────────────────────────────────
+  Question : Show me all subjects who reported "Pruritus" as an adverse event.
+  Column   : AETERM
+  Filter   : 'PRURITUS'  [contains]
+  Reasoning: The user is asking for subjects who reported 'Pruritus', which is a specific adverse event term. Therefore, we filter by the AETERM column using a contains operation.
+  ─────────────────────────────────────────────────────
+  Matching AE records : 168
+  Unique subjects (n) : 108
+  Subject IDs         : ['01-701-1015', '01-701-1028', '01-701-1034', '01-701-1097', '01-701-1111', '01-701-1115', '01-701-1130', '01-701-1133', '01-701-1146', '01-701-1148', '01-701-1180', '01-701-1188', '01-701-1192', '01-701-1211', '01-701-1239', '01-701-1275', '01-701-1287', '01-701-1294', '01-701-1302', '01-701-1317', '01-701-1324', '01-701-1341', '01-701-1360', '01-701-1363', '01-701-1383', '01-701-1442', '01-701-1444', '01-703-1076', '01-703-1119', '01-704-1017', '01-704-1065', '01-704-1074', '01-704-1093', '01-704-1114', '01-704-1120', '01-704-1266', '01-704-1323', '01-704-1325', '01-704-1332', '01-705-1280', '01-705-1281', '01-705-1292', '01-705-1303', '01-705-1393', '01-706-1041', '01-706-1384', '01-708-1178', '01-708-1216', '01-708-1286', '01-708-1296', '01-708-1297', '01-708-1336', '01-708-1347', '01-708-1348', '01-708-1428', '01-709-1020', '01-709-1029', '01-709-1099', '01-709-1102', '01-709-1168', '01-709-1217', '01-709-1238', '01-709-1285', '01-709-1306', '01-709-1309', '01-709-1326', '01-710-1006', '01-710-1021', '01-710-1045', '01-710-1053', '01-710-1060', '01-710-1070', '01-710-1137', '01-710-1235', '01-710-1249', '01-710-1264', '01-710-1270', '01-710-1300', '01-710-1315', '01-710-1354', '01-710-1358', '01-710-1385', '01-711-1012', '01-713-1073', '01-713-1209', '01-714-1068', '01-714-1195', '01-714-1375', '01-716-1026', '01-716-1063', '01-716-1103', '01-716-1108', '01-716-1151', '01-716-1157', '01-716-1160', '01-716-1167', '01-716-1189', '01-716-1229', '01-716-1298', '01-716-1364', '01-716-1373', '01-716-1418', '01-716-1447', '01-717-1109', '01-717-1174', '01-718-1250', '01-718-1254', '01-718-1427']
+──────────────────────────────────────────────────────────────
+
+  Sample matching records (up to 5):
+
+    USUBJID=01-701-1015  AETERM='APPLICATION SITE PRURITUS'  AESEV=MILD  AESER=N  AEOUT=NOT RECOVERED/NOT RESOLVED
+    USUBJID=01-701-1028  AETERM='APPLICATION SITE PRURITUS'  AESEV=MILD  AESER=N  AEOUT=NOT RECOVERED/NOT RESOLVED
+    USUBJID=01-701-1034  AETERM='APPLICATION SITE PRURITUS'  AESEV=MILD  AESER=N  AEOUT=NOT RECOVERED/NOT RESOLVED
+    USUBJID=01-701-1097  AETERM='APPLICATION SITE PRURITUS'  AESEV=MILD  AESER=N  AEOUT=NOT RECOVERED/NOT RESOLVED
+    USUBJID=01-701-1097  AETERM='APPLICATION SITE PRURITUS'  AESEV=MODERATE  AESER=N  AEOUT=NOT RECOVERED/NOT RESOLVED
+
+══════════════════════════════════════════════════════════════
+  All queries completed successfully.
+══════════════════════════════════════════════════════════════
+

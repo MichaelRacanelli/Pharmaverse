@@ -4,3 +4,6 @@
 .Ruserdata
 Pharmaverse.Rproj
 .DS_Store
+__pycache__
+.env
+.venv/
