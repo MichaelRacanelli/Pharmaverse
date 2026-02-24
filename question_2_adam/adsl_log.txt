@@ -1,0 +1,54 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+
+Attaching package: ‘lubridate’
+
+The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+
+=== ADSL dataset created successfully ===
+Rows    : 306 
+Columns : 48 
+
+--- Custom variable summary ---
+AGEGR9 / AGEGR9N counts:
+         
+            2   3
+  >50       0 305
+  18 - 50   1   0
+
+TRTSDTM sample (first 5):
+# A tibble: 5 × 4
+  USUBJID     TRTSDTM             TRTSTMF TRTSDT    
+  <chr>       <dttm>              <chr>   <date>    
+1 01-701-1015 2014-01-02 00:00:00 H       2014-01-02
+2 01-701-1023 2012-08-05 00:00:00 H       2012-08-05
+3 01-701-1028 2013-07-19 00:00:00 H       2013-07-19
+4 01-701-1033 2014-03-18 00:00:00 H       2014-03-18
+5 01-701-1034 2014-07-01 00:00:00 H       2014-07-01
+
+ITTFL counts:
+
+  Y 
+306 
+
+LSTAVLDT sample (first 5):
+# A tibble: 5 × 4
+  USUBJID     TRTEDTM             TRTEDT     LSTAVLDT  
+  <chr>       <dttm>              <date>     <date>    
+1 01-701-1015 2014-07-02 23:59:59 2014-07-02 2014-07-02
+2 01-701-1023 2012-09-01 23:59:59 2012-09-01 2013-02-18
+3 01-701-1028 2014-01-14 23:59:59 2014-01-14 2014-01-14
+4 01-701-1033 2014-03-31 23:59:59 2014-03-31 2014-09-15
+5 01-701-1034 2014-12-30 23:59:59 2014-12-30 2014-12-30
